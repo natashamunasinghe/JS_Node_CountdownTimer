@@ -1,0 +1,44 @@
+<div class="header">
+    <h1>...So Excited for Chile :) </h1>
+</div>
+<!-- Display the countdown timer in an element -->
+<div id="demo"></div>
+
+<script>
+    // Set the date we're counting down to
+    let finalDownDate = new Date("Apr 19, 2019 01:00:00").getTime();
+
+    // Update the count down every 1 second
+    let x = setInterval(function () {
+
+        // Get todays date and time
+        let now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        let timeLeft = finalDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+        document.getElementById("demo").setAttribute(
+            "style", "font-size: 150px; font-style: bold; color: white ; border: thick solid #ffffff; text-align: center;");
+
+        //timer has expired
+        if (timeLeft < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "Countdown has finished which means we went to Chile :)";
+        }
+    }, 1000);
+</script>
+
+<div class="footer">
+    <p> Built by me with Node, HTML, CSS and JS...Oh! and
+        lot's of googling. I'm using Handlebars to render :)
+    </p>
+</div>
